@@ -1,0 +1,32 @@
+module yf-interactive {
+  prefix yfi;
+
+  import yangforge { prefix yf; }
+
+  feature browser {
+    description "When enabled, generates web client browser application interface";
+    if-feature yf:express;
+  }
+
+  feature websocket {
+    description "When enabled, generates socket.io websocket interface";
+    if-feature yf:express;
+  }
+
+  augment "/yf:run/yf:input/yf:options" {
+    description
+      "Additional RPC run parameters";
+    
+    leaf websocket {
+      description "enables socket.io interface";
+      type boolean;
+      default true;
+    }
+    leaf browser {
+      description "enables web client interface";
+      type boolean;
+      default true;
+    }
+    
+  }
+}
