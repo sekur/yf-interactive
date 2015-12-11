@@ -2,4 +2,3 @@ schema: !yang yf-interactive.yang
 
 feature:
   browser:   !require features/browser
-  websocket: !require features/websocket
